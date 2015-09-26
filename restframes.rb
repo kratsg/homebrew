@@ -9,10 +9,10 @@ class Restframes < Formula
   depends_on "root" if build.without? "root6"
 
   def install
-    inreplace Dir["src/Makefile.am", "src/Makefile.in"] do |s|
-      s.gsub! "$(libdir)/libRestFrames.rootmap", "sbin/libRestFrames.rootmap"
+    #inreplace Dir["src/Makefile.am", "src/Makefile.in"] do |s|
+      #s.gsub! "$(libdir)/libRestFrames.rootmap", "sbin/libRestFrames.rootmap"
       #s.gsub! "$(libdir)/RestFrames_Dict_rdict.pcm", "sbin/RestFrames_Dict_rdict.pcm"
-    end
+    #end
 
     sbin.mkpath
 
