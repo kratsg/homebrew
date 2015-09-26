@@ -11,7 +11,7 @@ class Restframes < Formula
   def install
     inreplace Dir["src/Makefile.am", "src/Makefile.in"] do |s|
       s.gsub! "$(libdir)/libRestFrames.rootmap", "var/libRestFrames.rootmap"
-      s.gsub! "$(libdir)/RestFrames_Dict_rdict.pcm", "var/RestFrames_Dict_rdict.pcm"
+      #s.gsub! "$(libdir)/RestFrames_Dict_rdict.pcm", "var/RestFrames_Dict_rdict.pcm"
     end
 
     system "./configure", "--disable-debug",
