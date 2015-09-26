@@ -14,7 +14,7 @@ class Restframes < Formula
       #s.gsub! "$(libdir)/RestFrames_Dict_rdict.pcm", "sbin/RestFrames_Dict_rdict.pcm"
     #end
 
-    sbin.mkpath
+    (prefix+"etc").mkpath
 
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
