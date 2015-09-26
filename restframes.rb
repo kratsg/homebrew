@@ -1,41 +1,35 @@
-# Documentation: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Formula-Cookbook.md
-#                /usr/local/Library/Contributions/example-formula.rb
-# PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
-
 class Restframes < Formula
-  desc ""
+  desc "particle physics event analysis library"
   homepage "http://restframes.com/"
-  url "https://github.com/crogan/RestFrames/tarball/master"
+  url "https://github.com/crogan/RestFrames/archive/29271bc.tar.gz"
   sha256 "d3635b335adc518edd1030d64691b9bae1cca9548e6785d6da219ad5bd826bc3"
-  version "1"
+  version "-1.5"
 
-  # depends_on "cmake" => :build
-  depends_on "root" # depends on root5
+  depends_on "root6" => :recommended
+  depends_on "root" if build.without? "root6"
 
   def install
-    # ENV.deparallelize  # if your formula fails when building in parallel
-
-    # Remove unrecognized options if warned by configure
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
-    # system "cmake", ".", *std_cmake_args
     system "make"
-    system "make", "install" # if this fails, try separate make/make install steps
+    system "make", "install"
   end
 
   test do
-    # `test do` will create, run in and delete a temporary directory.
-    #
-    # This test will fail and we won't accept that! It's enough to just replace
-    # "false" with the main program this formula installs, but it'd be nice if you
-    # were more thorough. Run the test with `brew test RestFrames`. Options passed
-    # to `brew install` such as `--HEAD` also need to be provided to `brew test`.
-    #
-    # The installed folder is not in the path, so use the entire path to any
-    # executables being tested: `system "#{bin}/program", "do", "something"`.
-    system "false"
+#    (testpath/"test.C").write <<-EOS.undent
+#      #include <iostream>
+#      void test() {
+#        std::cout << "Hello, world!" << std::endl;
+#      }
+#    EOS
+#    (testpath/"test.bash").write <<-EOS.undent
+#      . #{libexec}/thisroot.sh
+#      root -l -b -n -q test.C
+#    EOS
+#    assert_equal "\nProcessing test.C...\nHello, world!\n",
+#      `/bin/bash test.bash`
   end
 
   def caveats; <<-EOS.undent
@@ -53,5 +47,4 @@ class Restframes < Formula
       source `brew --prefix restframes`/libexec/setup_RestFrames.csh
     EOS
   end
-
 end
