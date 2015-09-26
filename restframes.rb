@@ -9,12 +9,10 @@ class Restframes < Formula
   depends_on "root" if build.without? "root6"
 
   def install
-    #inreplace Dir["src/Makefile.am", "src/Makefile.in"] do |s|
-      #s.gsub! "$(libdir)/libRestFrames.rootmap", "sbin/libRestFrames.rootmap"
-      #s.gsub! "$(libdir)/RestFrames_Dict_rdict.pcm", "sbin/RestFrames_Dict_rdict.pcm"
-    #end
-
-    (prefix+"etc").mkpath
+    # inreplace Dir["src/Makefile.am", "src/Makefile.in"] do |s|
+    #  s.gsub! "$(libdir)/libRestFrames.rootmap", "sbin/libRestFrames.rootmap"
+    #  s.gsub! "$(libdir)/RestFrames_Dict_rdict.pcm", "sbin/RestFrames_Dict_rdict.pcm"
+    # end
 
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
@@ -44,17 +42,17 @@ class Restframes < Formula
   end
 
   test do
-#    (testpath/"test.C").write <<-EOS.undent
-#      #include <iostream>
-#      void test() {
-#        std::cout << "Hello, world!" << std::endl;
-#      }
-#    EOS
-#    (testpath/"test.bash").write <<-EOS.undent
-#      . #{libexec}/thisroot.sh
-#      root -l -b -n -q test.C
-#    EOS
-#    assert_equal "\nProcessing test.C...\nHello, world!\n",
-#      `/bin/bash test.bash`
+    #    (testpath/"test.C").write <<-EOS.undent
+    #      #include <iostream>
+    #      void test() {
+    #        std::cout << "Hello, world!" << std::endl;
+    #      }
+    #    EOS
+    #    (testpath/"test.bash").write <<-EOS.undent
+    #      . #{libexec}/thisroot.sh
+    #      root -l -b -n -q test.C
+    #    EOS
+    #    assert_equal "\nProcessing test.C...\nHello, world!\n",
+    #      `/bin/bash test.bash`
   end
 end
