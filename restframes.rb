@@ -17,21 +17,6 @@ class Restframes < Formula
     system "make", "install"
   end
 
-  test do
-#    (testpath/"test.C").write <<-EOS.undent
-#      #include <iostream>
-#      void test() {
-#        std::cout << "Hello, world!" << std::endl;
-#      }
-#    EOS
-#    (testpath/"test.bash").write <<-EOS.undent
-#      . #{libexec}/thisroot.sh
-#      root -l -b -n -q test.C
-#    EOS
-#    assert_equal "\nProcessing test.C...\nHello, world!\n",
-#      `/bin/bash test.bash`
-  end
-
   def caveats; <<-EOS.undent
     Because RestFrames depends on several installation-dependent
     environment variables to function properly, you should
@@ -46,5 +31,20 @@ class Restframes < Formula
     For csh/tcsh users:
       source `brew --prefix restframes`/libexec/setup_RestFrames.csh
     EOS
+  end
+
+  test do
+#    (testpath/"test.C").write <<-EOS.undent
+#      #include <iostream>
+#      void test() {
+#        std::cout << "Hello, world!" << std::endl;
+#      }
+#    EOS
+#    (testpath/"test.bash").write <<-EOS.undent
+#      . #{libexec}/thisroot.sh
+#      root -l -b -n -q test.C
+#    EOS
+#    assert_equal "\nProcessing test.C...\nHello, world!\n",
+#      `/bin/bash test.bash`
   end
 end
