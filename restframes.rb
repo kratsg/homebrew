@@ -15,6 +15,10 @@ class Restframes < Formula
                           "--prefix=#{prefix}"
     system "make"
     system "make", "install"
+
+    doc.install Dir["doc/*"]
+    #examples.mkpath
+    examples.install Dir["examples/*.C"]
   end
 
   def caveats; <<-EOS.undent
