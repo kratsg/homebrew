@@ -14,6 +14,8 @@ class Restframes < Formula
       #s.gsub! "$(libdir)/RestFrames_Dict_rdict.pcm", "var/RestFrames_Dict_rdict.pcm"
     end
 
+    var.mkpath
+
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
