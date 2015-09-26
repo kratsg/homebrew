@@ -2,8 +2,8 @@ class Restframes < Formula
   desc "particle physics event analysis library"
   homepage "http://restframes.com/"
   url "https://github.com/crogan/RestFrames/archive/29271bc.tar.gz"
-  sha256 "ce2064c3846f68c14ac26533235e0b6c4a5d9d20a16f24bd2c4313a653020720"
   version "-1.5"
+  sha256 "ce2064c3846f68c14ac26533235e0b6c4a5d9d20a16f24bd2c4313a653020720"
 
   depends_on "root6" => :recommended
   depends_on "root" if build.without? "root6"
