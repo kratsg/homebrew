@@ -17,7 +17,7 @@ class Restframes < Formula
     system "make", "install"
 
     doc.install Dir["doc/*"]
-    (doc+"examples").install Dir["examples/*.C"]
+    (share+"examples/#{name}").install Dir["examples/*.C"]
   end
 
   def caveats; <<-EOS.undent
