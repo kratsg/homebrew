@@ -1,6 +1,5 @@
 ```
-brew tap kratsg/homebrew-restframes
+brew tap kratsg/homebrew
 brew install restframes
+brew install contin
 ```
-
-See [crogan/RestFrames](https://github.com/crogan/RestFrames) for more information.
