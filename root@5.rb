@@ -37,6 +37,8 @@ class RootAT5 < Formula
   depends_on "xrootd"
   depends_on :x11 => :optional
   depends_on "python" if MacOS.version <= :snow_leopard
+  # see https://github.com/Homebrew/homebrew-science/issues/5745
+  depends_on "graphviz"
 
   skip_clean "bin"
 
