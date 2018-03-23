@@ -1,4 +1,4 @@
-class RootAT5 < Formula
+class Root5 < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch"
   url "https://root.cern.ch/download/root_v5.34.36.source.tar.gz"
